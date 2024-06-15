@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']);
 
     // Defina o endereço de email do destinatário
-    $to = "seuemail@exemplo.com";
+    $to = "laercioricardolima@gmail.com";
 
     // Crie o cabeçalho do email
     $headers = "From: " . $name . " <" . $email . ">\r\n";
