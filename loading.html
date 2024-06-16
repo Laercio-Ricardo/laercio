@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chatbox</title>
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .chatbox-container {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                max-height: 40px; /* Height when minimized */
+            }
+            .chatbox-header {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+            .chatbox-header h2 {
+                margin: 0;
+                font-size: 16px;
+            }
+            .chatbox-header button {
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .chatbox-content {
+                background-color: #fff;
+                display: none; /* Hidden when minimized */
+                flex-direction: column;
+                max-height: 400px;
+                overflow: hidden;
+            }
+            .chatbox-messages {
+                flex: 1;
+                padding: 10px;
+                overflow-y: auto;
+            }
+            .chatbox-input {
+                display: flex;
+                padding: 10px;
+                border-top: 1px solid #ddd;
+            }
+            .chatbox-input input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+            .chatbox-input button {
+                padding: 10px 20px;
+                border: none;
+                background-color: #4caf50;
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Chatbox -->
+        <div class="chatbox-container">
+            <div class="chatbox-header" onclick="toggleChatbox()">
+                <h2>Contato</h2>
+                <button>×</button>
+            </div>
+            <div class="chatbox-content">
+                <div class="chatbox-messages" id="chatMessages">
+                    <!-- Mensagens aparecerão aqui -->
+                </div>
+                <div class="chatbox-input">
+                    <p>Contato: (86) 99499-8988</p>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            // Função para alternar a visibilidade do chatbox
+            function toggleChatbox() {
+                var chatboxContainer = document.querySelector('.chatbox-container');
+                var chatboxContent = document.querySelector('.chatbox-content');
+                if (chatboxContent.style.display === 'none' || chatboxContent.style.display === '') {
+                    chatboxContent.style.display = 'flex';
+                    chatboxContainer.style.maxHeight = '500px'; // Expand to full size
+                } else {
+                    chatboxContent.style.display = 'none';
+                    chatboxContainer.style.maxHeight = '40px'; // Minimize
+                }
+            }
+    
+            // Função para obter a saudação dependendo do horário do dia
+            function getGreeting() {
+                var currentTime = new Date();
+                var currentHour = currentTime.getHours();
+                if (currentHour < 12) {
+                    return "Bom dia! Como posso ajudá-lo?";
+                } else if (currentHour < 18) {
+                    return "Boa tarde! Como posso ajudá-lo?";
+                } else {
+                    return "Boa noite! Como posso ajudá-lo?";
+                }
+            }
+    
+            // Exibir a saudação na inicialização
+            document.addEventListener("DOMContentLoaded", function() {
+                var chatMessages = document.getElementById('chatMessages');
+                var greetingMessage = document.createElement('div');
+                greetingMessage.textContent = getGreeting();
+                chatMessages.appendChild(greetingMessage);
+            });
+        </script>
+    </body>
+    </html>
+    
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5;url=seu-site.html"> <!-- Redireciona para sua página após 5 segundos -->
+    <title>Carregando...</title>
+    <!-- Estilos CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif; /* Altera a fonte para Roboto */
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px; /* Espaçamento entre o coração e a barra de carregamento */
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        .progress-bar {
+            width: 200px; /* Largura da barra de carregamento */
+            height: 20px;
+            background-color: #ddd; /* Cor de fundo da barra de carregamento */
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress {
+            width: 0; /* Largura inicial da barra de carregamento */
+            height: 100%;
+            background-color: #4caf50; /* Cor da barra de carregamento */
+        }
+        .percent {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #333;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0.8); }
+        }
+    </style>
+    <!-- Importa a fonte Roboto do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Conteúdo da Página de Carregamento -->
+    <div class="loader">
+        <img src="image.png" class="heart" alt="Coração Pulsante">
+        <div class="progress-bar">
+            <div class="progress"></div>
+            <div class="percent">0%</div>
+        </div>
+    </div>
+    
+    <script>
+        // Atualiza dinamicamente o percentual de progresso
+        var progressBar = document.querySelector('.progress');
+        var percentText = document.querySelector('.percent');
+
+        function updateProgress(percent) {
+            progressBar.style.width = percent + '%';
+            percentText.textContent = Math.floor(percent) + '%';
+        }
+
+        // Sincroniza a animação da barra de progresso e do percentual
+        var duration = 5000; // 5 segundos
+        var startTime = performance.now();
+
+        function animateProgress(timestamp) {
+            var elapsedTime = timestamp - startTime;
+            var percent = (elapsedTime / duration) * 100;
+            if (percent > 100) percent = 100;
+            updateProgress(percent);
+            if (elapsedTime < duration) {
+                requestAnimationFrame(animateProgress);
+            }
+        }
+
+        // Inicia a animação da barra de progresso
+        requestAnimationFrame(animateProgress);
+    </script>
+</body>
+</html>
