@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5;url=index1.html"> <!-- Redireciona para sua página após 5 segundos -->
+    <title>Carregando...</title>
+    <!-- Estilos CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif; /* Altera a fonte para Roboto */
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px; /* Espaçamento entre o coração e a barra de carregamento */
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        .progress-bar {
+            width: 200px; /* Largura da barra de carregamento */
+            height: 20px;
+            background-color: #ddd; /* Cor de fundo da barra de carregamento */
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress {
+            width: 0; /* Largura inicial da barra de carregamento */
+            height: 100%;
+            background-color: #4caf50; /* Cor da barra de carregamento */
+        }
+        .percent {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #333;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0.8); }
+        }
+    </style>
+    <!-- Importa a fonte Roboto do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Conteúdo da Página de Carregamento -->
+    <div class="loader">
+        <img src="image.png" class="heart" alt="Coração Pulsante">
+        <div class="progress-bar">
+            <div class="progress"></div>
+            <div class="percent">0%</div>
+        </div>
+    </div>
+    
+    <script>
+        // Atualiza dinamicamente o percentual de progresso
+        var progressBar = document.querySelector('.progress');
+        var percentText = document.querySelector('.percent');
+
+        function updateProgress(percent) {
+            progressBar.style.width = percent + '%';
+            percentText.textContent = Math.floor(percent) + '%';
+        }
+
+        // Sincroniza a animação da barra de progresso e do percentual
+        var duration = 5000; // 5 segundos
+        var startTime = performance.now();
+
+        function animateProgress(timestamp) {
+            var elapsedTime = timestamp - startTime;
+            var percent = (elapsedTime / duration) * 100;
+            if (percent > 100) percent = 100;
+            updateProgress(percent);
+            if (elapsedTime < duration) {
+                requestAnimationFrame(animateProgress);
+            }
+        }
+
+        // Inicia a animação da barra de progresso
+        requestAnimationFrame(animateProgress);
+    </script>
+</body>
+</html>
