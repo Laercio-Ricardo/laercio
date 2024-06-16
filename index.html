@@ -8,6 +8,10 @@
   <title>Perfil do Laércio Ricardo</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  
+<!-- Inclua a biblioteca SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -36,7 +40,7 @@
     <div class="container">
 
       <h1><a href="index.html">Laércio Ricardo</a></h1>
-      <h2>Me especializando em<span> programação web e análises de dados</span> na minha quente Teresina-Pi.</h2>
+      <h2>Me especializando em<span> programação web e análises de dados</span> na minha quente cidade de Teresina-Pi.</h2>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -569,7 +573,7 @@ Atualmente, estou disponível para projetos freelance, onde posso aplicar meu co
         </div>
       </div>
 
-      <form action="forms/contact1.php" method="post" role="form" class="php-email-form mt-4">
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome..." required>
@@ -597,7 +601,7 @@ Atualmente, estou disponível para projetos freelance, onde posso aplicar meu co
 
   <div class="credits">
     
-    Feito Por:<a href="#">  Laércio Ricardo Lima</a>
+    Autor Arretado <a href="#">Laércio Ricardo Lima</a>
   </div>
 
   <!-- Vendor JS Files -->
@@ -611,6 +615,30 @@ Atualmente, estou disponível para projetos freelance, onde posso aplicar meu co
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- Script para exibir o modal de aviso -->
+ 
+<script>
+  
+  document.addEventListener('DOMContentLoaded', function() {
+      Swal.fire({
+          title: '<span style="font-family: Roboto, sans-serif;">Aviso</span>',
+          html: '<span style="font-family: Roboto, sans-serif;">Caso o formulário de contato esteja indisponível, use os links das redes sociais!</span>',
+          icon: 'warning',
+          showCancelButton: false,
+          confirmButtonText: 'Fechar',
+          allowOutsideClick: false,
+          customClass: {
+              title: 'swal-title',
+              htmlContainer: 'swal-text',
+          }
+      });
+  });
+  </script>
+  
+  </body>
+  </html>
+  
+  
 
 </body>
 
