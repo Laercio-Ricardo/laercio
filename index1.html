@@ -2,13 +2,56 @@
 <html lang="pt-Br">
 
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-</head>
-<body>
+  <style>
+    /* Estilos para o botão flutuante */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 70px;
+        height: 70px;
+        background-color: #25D366;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        cursor: pointer;
+        z-index: 1000; /* Garante que esteja acima de outros elementos */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 1.5s infinite, glow 1.5s infinite;
+    }
+
+    .whatsapp-float i {
+        font-size: 35px;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes glow {
+        0%, 100% {
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+        50% {
+            box-shadow: 0 0 30px rgba(37, 211, 102, 1);
+        }
+    }
+</style>
+<!-- Importando Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 <!-- Botão de WhatsApp Flutuante -->
 <a href="https://wa.me/5586994998988" target="_blank" class="whatsapp-float">
     <i class="bi bi-whatsapp"></i>
   </a>
+    <!--fim botão whatsapp no canto debaixo para contato-->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <!-- Aqui está meu titulo e a inserção da fonte do google Roboto-->
@@ -606,52 +649,7 @@ Atualmente, estou disponível para projetos freelance, onde posso aplicar meu co
   });
   </script>
   <!--inicio botão whatsapp no canto debaixo para contato-->
-  <style>
-    /* Estilos para o botão flutuante */
-    .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 70px;
-        height: 70px;
-        background-color: #25D366;
-        color: #fff;
-        border-radius: 50%;
-        text-align: center;
-        box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
-        cursor: pointer;
-        z-index: 1000; /* Garante que esteja acima de outros elementos */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: pulse 1.5s infinite, glow 1.5s infinite;
-    }
-
-    .whatsapp-float i {
-        font-size: 35px;
-    }
-
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.1);
-        }
-    }
-
-    @keyframes glow {
-        0%, 100% {
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
-        }
-        50% {
-            box-shadow: 0 0 30px rgba(37, 211, 102, 1);
-        }
-    }
-</style>
-<!-- Importando Bootstrap Icons -->
-
-    <!--fim botão whatsapp no canto debaixo para contato-->
+  
 
   </body>
   </html>
