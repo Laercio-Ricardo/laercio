@@ -72,6 +72,7 @@
       box-shadow: 2px 2px 3px #999;
       z-index: 1000;
       text-decoration: none;
+      transition: transform 0.2s;
     }
     .whatsapp-float i {
       font-size: 28px;
@@ -79,6 +80,21 @@
     .whatsapp-float:hover {
       color: white;
       text-decoration: none;
+      transform: scale(1.1);
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .whatsapp-float {
+      animation: pulse 2s infinite;
     }
   </style>
 </head>
@@ -89,6 +105,8 @@
   </a>
   <!-- fim botão whatsapp no canto debaixo para contato -->
 </body>
+</html>
+
 </html>
 
 </body>
