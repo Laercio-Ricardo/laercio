@@ -1,108 +1,40 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <!-- Aqui está meu titulo e a inserção da fonte do google Roboto-->
-    <title>Perfil do Laércio Ricardo</title>
-    <link href="assets/css/style.css" rel="stylesheet">
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5;url=index1.html"> <!-- Redireciona para sua página após 5 segundos -->
-    <title>Carregando...</title>
-    <!-- Estilos CSS -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif; /* Altera a fonte para Roboto */
-            background-color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .loader {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .heart {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px; /* Espaçamento entre o coração e a barra de carregamento */
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        .progress-bar {
-            width: 200px; /* Largura da barra de carregamento */
-            height: 20px;
-            background-color: #ddd; /* Cor de fundo da barra de carregamento */
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-        .progress {
-            width: 0; /* Largura inicial da barra de carregamento */
-            height: 100%;
-            background-color: #4caf50; /* Cor da barra de carregamento */
-        }
-        .percent {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 16px;
-            color: #333;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.8); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(0.8); }
-        }
-    </style>
-    <!-- Importa a fonte Roboto do Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Conteúdo da Página de Carregamento -->
-    <div class="loader">
-        <img src="image.png" class="heart" alt="Coração Pulsante">
-        <div class="progress-bar">
-            <div class="progress"></div>
-            <div class="percent">0%</div>
+    <div class="container">
+        <h1>Decodificador de Texto</h1>
+
+        <div class="input-group">
+            <textarea class="form-control transparent" id="textoOriginal" rows="5" placeholder="Digite seu texto"></textarea>
+            <div id="mensagemErro" class="mensagem-erro"></div>
+
+            <div class="aviso">
+                <img id="imagemAviso" src="1.png" alt="Imagem de aviso" width="400" height="944">
+                            </div>
         </div>
+        <div class="button-group">
+            <button class="btn btn-primary" onclick="criptografar()">Criptografar</button>
+            <button class="btn btn-secondary" onclick="descriptografar()">Descriptografar</button>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control transparent" id="textoCriptografado" rows="5" readonly></textarea>
+        </div>
+        <button class="btn btn-secondary mb-3" onclick="copiarTexto()">Copiar</button>
+        <footer>
+            <p>Desenvolvido por Laércio Ricardo - JUNHO - 2024</p>
+        </footer>
+
     </div>
-    
-    <script>
-        // Atualiza dinamicamente o percentual de progresso
-        var progressBar = document.querySelector('.progress');
-        var percentText = document.querySelector('.percent');
-
-        function updateProgress(percent) {
-            progressBar.style.width = percent + '%';
-            percentText.textContent = Math.floor(percent) + '%';
-        }
-
-        // Sincroniza a animação da barra de progresso e do percentual
-        var duration = 5000; // 5 segundos
-        var startTime = performance.now();
-
-        function animateProgress(timestamp) {
-            var elapsedTime = timestamp - startTime;
-            var percent = (elapsedTime / duration) * 100;
-            if (percent > 100) percent = 100;
-            updateProgress(percent);
-            if (elapsedTime < duration) {
-                requestAnimationFrame(animateProgress);
-            }
-        }
-
-        // Inicia a animação da barra de progresso
-        requestAnimationFrame(animateProgress);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+ -
